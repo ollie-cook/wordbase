@@ -4,7 +4,7 @@
   let formElement: HTMLFormElement;
   let definition = ""
   let wordState = true;
-  export let data: Word[];
+  export let data: { body: Word[]};
 
   async function handleSubmit(event: Event) {
     const form = event.target as HTMLFormElement;
@@ -60,6 +60,6 @@
   </form>
   <p class="mx-auto">{definition}</p>
 </div>
-<Saved savedWords={data} />
+<Saved savedWords={data.body} />
 
 
