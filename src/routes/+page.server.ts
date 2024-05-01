@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env.local' });
 
-
 export const load: PageServerLoad = async ({ params }) => {	
 	const { Client } = pg;
 
@@ -14,11 +13,6 @@ export const load: PageServerLoad = async ({ params }) => {
 	
 	const res = await client.query('SELECT * FROM words')
 	await client.end()
-
-	console.log(res)
-
-	const post = JSON.stringify(res);
-	console.log(process.env.PGUSER)
 
 	if (res) {		
 		return { body: res.rows };	
